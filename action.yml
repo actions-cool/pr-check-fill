@@ -1,22 +1,28 @@
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
-name: 'Action JS Template'
-description: 'A simple javascript template for rapid development of GitHub actions.'
+name: 'PR Check Fill'
+description: 'A GitHub Action help you to check the filling format of PR.'
 author: 'xrkffgg'
 
+# https://actions-cool.github.io/github-action-branding/
 branding:
-  # https://actions-cool.github.io/github-action-branding/
-  icon: 'file'
-  color: 'blue'
+  icon: 'pocket'
+  color: 'gray-dark'
 
 inputs:
-  GITHUB_TOKEN:
+  token:
     description: Secret GitHub API token to use for making API requests.
     default: ${{ github.token }}
     required: true
-
-#outputs:
-#  result:
-#    description: action result
+  filter-start:
+    description: Content lines detection and filtering.
+    required: true
+  require-include:
+    description: Further filtering lines.
+  comment-body:
+    description: Comment reminder when not filled in.
+    required: true
+  skip-title-start:
+    description: Skip PR title start with.
 
 runs:
   using: 'node12'

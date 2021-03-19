@@ -1,8 +1,8 @@
 {
-  "name": "action-js-template",
-  "version": "0.0.1",
+  "name": "pr-check-fill",
+  "version": "1.0.0",
   "private": true,
-  "description": "A javascript template for rapid development of GitHub actions.",
+  "description": "A GitHub Action help you to check the filling format of PR.",
   "main": "src/main.js",
   "scripts": {
     "package": "ncc build",
@@ -19,7 +19,8 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
-    "@octokit/rest": "^18.0.14"
+    "@octokit/rest": "^18.0.14",
+    "actions-util": "^1.0.0"
   },
   "devDependencies": {
     "@umijs/fabric": "^2.5.6",
