@@ -13,7 +13,7 @@ async function listComments(owner, repo, number, page = 1) {
     page,
   });
   if (comments.length >= 100) {
-    comments = comments.concat(await listComments(page + 1));
+    comments = comments.concat(await listComments(owner, repo, number, page + 1));
   }
   return comments;
 }
