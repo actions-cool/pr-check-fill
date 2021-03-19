@@ -17,7 +17,6 @@ async function run() {
 
     if (context.eventName.includes('pull_request')) {
       const number = context.payload.pull_request.number;
-      const creater = context.payload.pull_request.user.login;
 
       const title = context.payload.pull_request.title;
       const body = context.payload.pull_request.body;
@@ -40,6 +39,7 @@ async function run() {
         if (filterComments.length == 1) {
           await deleteComment(owner, repo, filterComments[0]);
         }
+        core.info(`Skip title start: ${skipTitleStart}`);
         return false;
       }
 
@@ -70,7 +70,7 @@ async function run() {
       const commentBody = core.getInput('comment-body');
       if (!out) {
         if (filterComments.length == 0) {
-          await createComment(owner, repo, numner, commentBody, FIXCOMMENT);
+          await createComment(owner, repo, number, commentBody, FIXCOMMENT);
           core.setFailed(`PR check fill failed. See comment!`);
           return false;
         }
