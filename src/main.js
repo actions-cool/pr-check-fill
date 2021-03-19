@@ -4,7 +4,7 @@ const github = require('@actions/github');
 // ************************************************
 const context = github.context;
 
-const { listComments, deleteComment, checkInclude, createComment } = require('./util');
+const { listComments, deleteComment, checkTitle, checkInclude, createComment } = require('./util');
 
 const { dealStringToArr } = require('actions-util');
 
@@ -35,7 +35,7 @@ async function run() {
       }
 
       const skipTitleStart = core.getInput('skip-title-start');
-      if (skipTitleStart && title.startsWith(skipTitleStart)) {
+      if (skipTitleStart && checkTitle(dealStringToArr(skipTitleStart), title)) {
         if (filterComments.length == 1) {
           await deleteComment(owner, repo, filterComments[0]);
         }

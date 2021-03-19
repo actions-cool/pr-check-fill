@@ -27,6 +27,17 @@ async function deleteComment(owner, repo, commentID) {
   core.info(`Actions: [delete-comment][${commentID}] success!`);
 }
 
+function checkTitle(arr, str) {
+  let result = false;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (str.startsWith(arr[i])) {
+      result = true;
+      break;
+    }
+  }
+  return result;
+}
+
 function checkInclude(arr, str) {
   let result = false;
   for (let i = 0; i < arr.length; i += 1) {
@@ -52,6 +63,7 @@ async function createComment(owner, repo, number, commentBody, FIXCOMMENT) {
 module.exports = {
   listComments,
   deleteComment,
+  checkTitle,
   checkInclude,
   createComment,
 };

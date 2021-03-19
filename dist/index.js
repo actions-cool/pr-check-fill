@@ -5989,7 +5989,7 @@ const github = __nccwpck_require__(438);
 // ************************************************
 const context = github.context;
 
-const { listComments, deleteComment, checkInclude, createComment } = __nccwpck_require__(254);
+const { listComments, deleteComment, checkTitle, checkInclude, createComment } = __nccwpck_require__(254);
 
 const { dealStringToArr } = __nccwpck_require__(55);
 
@@ -6020,7 +6020,7 @@ async function run() {
       }
 
       const skipTitleStart = core.getInput('skip-title-start');
-      if (skipTitleStart && title.startsWith(skipTitleStart)) {
+      if (skipTitleStart && checkTitle(dealStringToArr(skipTitleStart), title)) {
         if (filterComments.length == 1) {
           await deleteComment(owner, repo, filterComments[0]);
         }
@@ -6108,6 +6108,17 @@ async function deleteComment(owner, repo, commentID) {
   core.info(`Actions: [delete-comment][${commentID}] success!`);
 }
 
+function checkTitle(arr, str) {
+  let result = false;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (str.startsWith(arr[i])) {
+      result = true;
+      break;
+    }
+  }
+  return result;
+}
+
 function checkInclude(arr, str) {
   let result = false;
   for (let i = 0; i < arr.length; i += 1) {
@@ -6133,6 +6144,7 @@ async function createComment(owner, repo, number, commentBody, FIXCOMMENT) {
 module.exports = {
   listComments,
   deleteComment,
+  checkTitle,
   checkInclude,
   createComment,
 };
