@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1
+
+`2021.03.25`
+
+- refactor: remove `return false`.
+
 ## v1.1.0
 
 `2021.03.19`

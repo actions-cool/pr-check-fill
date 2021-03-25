@@ -6057,11 +6057,9 @@ async function run() {
         if (filterComments.length == 0) {
           await createComment(owner, repo, number, commentBody, FIXCOMMENT);
           core.setFailed(`PR check fill failed. See comment!`);
-          return false;
         }
       } else if (filterComments.length == 1) {
         await deleteComment(owner, repo, filterComments[0]);
-        return false;
       }
     } else {
       core.setFailed(`This Action only support pr!`);
