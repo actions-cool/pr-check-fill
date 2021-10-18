@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check fill
-        uses: actions-cool/pr-check-fill@v1.1.1
+        uses: actions-cool/pr-check-fill@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filter-start: '|'
