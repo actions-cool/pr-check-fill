@@ -23,6 +23,8 @@ inputs:
     required: true
   skip-title-start:
     description: Skip PR title start with.
+  remove-symbol:
+    description: Whether remove symbol
 
 runs:
   using: 'node12'

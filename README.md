@@ -36,6 +36,7 @@ jobs:
 | require-include | Further filtering lines. | string | ✖ |
 | comment-body | Comment reminder when not filled in. | string | ✔ |
 | skip-title-start | Skip PR title start with. | string | ✖ |
+| remove-symbol | Whether remove symbol. Default: false | boolean | ✖ |
 
 ## ⚡ Feedback
 

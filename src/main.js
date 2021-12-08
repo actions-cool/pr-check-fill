@@ -45,6 +45,7 @@ async function run() {
 
       const filterStart = core.getInput('filter-start');
       const requireInclude = core.getInput('require-include');
+      const removeSymbol = core.getInput('remove-symbol');
 
       let lines = body.split('\n');
       let out = true;
@@ -53,7 +54,9 @@ async function run() {
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
         if (a && b) {
           let temp = line;
-          temp = line.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, '');
+          if (removeSymbol == 'true') {
+            temp = line.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, '');
+          }
           if (requireInclude) {
             dealStringToArr(requireInclude).forEach(re => {
               temp = temp.replace(re, '');
