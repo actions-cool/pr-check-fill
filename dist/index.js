@@ -9750,11 +9750,6 @@ async function run() {
       const number = context.payload.pull_request.number;
       const title = context.payload.pull_request.title;
       const body = context.payload.pull_request.body;
-
-      console.log(title)
-
-      console.log(body)
-
       core.info(`[Init] [${owner}/${repo} ===> ${number}]`);
 
       const comments = await listComments(owner, repo, number);
@@ -9787,10 +9782,8 @@ async function run() {
 
       let lines = body.split(/\r?\n/);
       let out = true;
-      console.log('lines')
-      console.log(lines)
       lines.forEach(line => {
-        // console.log(line)
+        console.log(line)
         const a = line.startsWith(filterStart);
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
         if (a && b) {
