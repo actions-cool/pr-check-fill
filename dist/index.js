@@ -9797,6 +9797,7 @@ async function run() {
           }
           temp = temp.replace(filterStart, '');
           temp = temp.trim();
+          console.log(temp);
           if (temp.length == 0) {
             out = false;
             core.info(`[Check line false][${line}]`);
