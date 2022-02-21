@@ -65,9 +65,8 @@ async function run() {
               temp = temp.replace(re, '');
             });
           }
-          temp = temp.replace(filterStart, '');
           temp = temp.trim();
-          console.log(temp);
+          temp = temp.split(filterStart).filter(i => i.trim());
           if (temp.length == 0) {
             out = false;
             core.info(`[Check line false][${line}]`);
