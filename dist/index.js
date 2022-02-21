@@ -9761,7 +9761,6 @@ async function run() {
       });
 
       core.info(`[Query] filterComments ==> ${filterComments}`);
-      core.info(`[Query] filterComments length ==> ${filterComments.length}`);
 
       if (filterComments.length > 1) {
         core.info(`Error: filterComments length is ${filterComments.length}.`);
@@ -9786,11 +9785,8 @@ async function run() {
       lines.forEach(line => {
         const a = line.startsWith(filterStart);
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
-        console.log(a)
-        console.log(b)
         if (a && b) {
           let temp = line;
-          console.log(temp)
           if (removeSymbol == 'true') {
             temp = line.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, '');
           }
@@ -9799,6 +9795,7 @@ async function run() {
               temp = temp.replace(re, '');
             });
           }
+          temp = temp.replace(filterStart, '');
           temp = temp.trim();
           if (temp.length == 0) {
             out = false;
