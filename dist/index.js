@@ -9743,12 +9743,17 @@ async function run() {
   try {
     const owner = context.repo.owner;
     const repo = context.repo.repo;
+
     const FIXCOMMENT = `<!-- Created by actions-cool/pr-check-fill. Do not remove. -->`;
 
     if (context.eventName.includes('pull_request')) {
       const number = context.payload.pull_request.number;
       const title = context.payload.pull_request.title;
       const body = context.payload.pull_request.body;
+
+      console.log(title)
+
+      console.log(body)
 
       core.info(`[Init] [${owner}/${repo} ===> ${number}]`);
 
@@ -9759,6 +9764,8 @@ async function run() {
           filterComments.push(comment.id);
         }
       });
+
+      core.info(`[Query] filterComments ==> ${filterComments}`);
 
       if (filterComments.length > 1) {
         core.info(`Error: filterComments length is ${filterComments.length}.`);
@@ -9781,6 +9788,7 @@ async function run() {
       let lines = body.split('\n');
       let out = true;
       lines.forEach(line => {
+        console.log(line)
         const a = line.startsWith(filterStart);
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
         if (a && b) {
