@@ -9783,9 +9783,10 @@ async function run() {
       let lines = body.split(/\r?\n/);
       let out = true;
       lines.forEach(line => {
-        console.log(line)
         const a = line.startsWith(filterStart);
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
+        console.log(a)
+        console.log(b)
         if (a && b) {
           let temp = line;
           if (removeSymbol == 'true') {
