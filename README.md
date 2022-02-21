@@ -43,7 +43,7 @@ jobs:
 You are very welcome to try it out and put forward your comments. You can use the following methods:
 
 - Report bugs or consult with [Issue](https://github.com/actions-cool/pr-check-fill/issues)
-- Submit [Pull Request](https://github.com/actions-cool/pr-check-fill/pulls) to improve the code of `pr-check-fill`
+- Submit [Pull Request](https://github.com/actions-cool/pr-check-fill/pulls) to improve the code
 
 也欢迎加入 钉钉交流群
 
