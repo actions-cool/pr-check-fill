@@ -57,8 +57,10 @@ async function run() {
 
       let lines = body.split(/\r?\n/);
       let out = true;
+      console.log('lines')
+      console.log(lines)
       lines.forEach(line => {
-        console.log(line)
+        // console.log(line)
         const a = line.startsWith(filterStart);
         const b = requireInclude ? checkInclude(dealStringToArr(requireInclude), line) : true;
         if (a && b) {
