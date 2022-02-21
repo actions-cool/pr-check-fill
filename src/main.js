@@ -17,9 +17,10 @@ async function run() {
 
     if (context.eventName.includes('pull_request')) {
       const number = context.payload.pull_request.number;
-
       const title = context.payload.pull_request.title;
       const body = context.payload.pull_request.body;
+
+      core.info(`[Init] [${owner}/${repo} ===> ${number}]`);
 
       const comments = await listComments(owner, repo, number);
       const filterComments = [];
