@@ -9785,7 +9785,7 @@ async function run() {
       const requireInclude = core.getInput('require-include');
       const removeSymbol = core.getInput('remove-symbol');
 
-      let lines = body.split('\n');
+      let lines = body.split(/\r?\n/);
       let out = true;
       lines.forEach(line => {
         console.log(line)
