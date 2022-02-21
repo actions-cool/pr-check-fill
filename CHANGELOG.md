@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.2
+
+`2022.02.21`
+
+- fix: `filter-start` replace miss.
+
 ## v1.2.1
 
 `2022.02.21`
