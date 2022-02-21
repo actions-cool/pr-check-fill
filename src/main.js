@@ -31,6 +31,7 @@ async function run() {
       });
 
       core.info(`[Query] filterComments ==> ${filterComments}`);
+      core.info(`[Query] filterComments length ==> ${filterComments.length}`);
 
       if (filterComments.length > 1) {
         core.info(`Error: filterComments length is ${filterComments.length}.`);
@@ -59,6 +60,7 @@ async function run() {
         console.log(b)
         if (a && b) {
           let temp = line;
+          console.log(temp)
           if (removeSymbol == 'true') {
             temp = line.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, '');
           }
